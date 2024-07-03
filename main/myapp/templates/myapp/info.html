@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .wrapper {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 300px;
+            background: #183620;
+            color: #fff;
+            padding: 15px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar a:hover {
+            background: #495057;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .sidebar-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .info-box h4 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <img src="{% static 'myapp/logo.png' %}" alt="Logo">
+                <br>
+                <p>Developed by Business Intelligence</p>
+                <br>
+            </div>
+            <h2>Navegação</h2>
+            <a href="{% url 'protected_view' %}">Estudo de RV</a> 
+            <a href="">Estruturadas (Desenvolvimento)</a>  
+            <br>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        <div class="content">
+            <h2>Hub RV</h2> <!-- {{ user.username }}!</h2>   -->    
+
+            <br>
+            <div class="info-box">
+                <h4>Estudo de RV</h4>
+                <p>Estudo de operações em Renda Váriável, Operações em aberto e operações fechadas...</p>
+            </div>
+            <div class="info-box">
+                <h4>Como usar os filtros</h4>
+                <p>Selecionar o cliente, ativo e produto ou qualquer combinação entre eles...</p>
+            </div>
+            <div class="info-box">
+                <h4>Outras informações</h4>
+                <p>Clique em uma das páginas ao lado embaixo de Navegação, no inicio demora um pouco pois está fazendo uma cosulta de todas as operações no nosso Banco de Dados...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
