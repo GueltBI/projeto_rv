@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Export to PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        .info-boxes {
+            display: flex;
+            justify-content: space-between;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            flex: 1;
+            margin-right: 10px;
+        }
+        .info-box h4 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .variation-positive {
+            color: green;
+        }
+        .variation-negative {
+            color: red;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table, .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Estudo Renda Variável</h2>
+    <!-- Info Boxes -->
+    <div class="info-boxes">
+        <div class="info-box">
+            <h4>Financeiro Médio</h4>
+            <p>{{ financeiro_inicial }}</p>
+        </div>
+        <div class="info-box">
+            <h4>Financeiro Hoje</h4>
+            <p>{{ financeiro_hoje }}</p>
+            <div class="variation">
+                {% if variacao_percentual >= 0 %}
+                    <span class="variation-positive">▲ {{ variacao_percentual|floatformat:2 }}%</span>
+                {% else %}
+                    <span class="variation-negative">▼ {{ variacao_percentual|floatformat:2 }}%</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Primeira tabela de operações em aberto -->
+    <h3>Operações em Aberto</h3>
+    <table class="table">
+        {{ table_html|safe }}
+    </table>
+    <!-- Segunda tabela de operações fechadas -->
+    <h3>Operações Fechadas</h3>
+    <table class="table">
+        {{ table_html2|safe }}
+    </table>
+</body>
+</html>
